@@ -1,0 +1,144 @@
+<!-- templates/project_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ project.title }} | Marc Dexter Raymundo{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="fw-bold mb-4">{{ project.title }}</h1>
+                <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                    {% for tech in project.technologies.all %}
+                    <span class="badge bg-primary">{{ tech.name }}</span>
+                    {% endfor %}
+                </div>
+                <p class="lead text-muted">Completed on {{ project.date_completed|date:"F Y" }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Content -->
+<section class="project-content py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Project Image -->
+                <div class="project-image-container mb-5">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" class="img-fluid rounded-4 shadow-sm" alt="{{ project.title }}">
+                    {% else %}
+                    <div class="bg-light text-center py-5 rounded-4">
+                        <i class="fas fa-code text-muted fa-5x"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Project Overview -->
+                <div class="mb-5">
+                    <h2 class="fw-bold mb-4">Project Overview</h2>
+                    <div class="project-description">
+                        {{ project.description|linebreaks }}
+                    </div>
+                </div>
+                
+                <!-- Project Details -->
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h3 class="h5 fw-bold mb-4">Technologies Used</h3>
+                                <ul class="list-unstyled mb-0">
+                                    {% for tech in project.technologies.all %}
+                                    <li class="mb-2 d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-primary me-2"></i>
+                                        {{ tech.name }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h3 class="h5 fw-bold mb-4">Project Links</h3>
+                                <ul class="list-unstyled mb-0">
+                                    {% if project.live_url %}
+                                    <li class="mb-2">
+                                        <a href="{{ project.live_url }}" class="text-decoration-none d-flex align-items-center" target="_blank">
+                                            <i class="fas fa-globe text-primary me-2"></i>
+                                            Live Demo
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                    
+                                    {% if project.github_url %}
+                                    <li>
+                                        <a href="{{ project.github_url }}" class="text-decoration-none d-flex align-items-center" target="_blank">
+                                            <i class="fab fa-github text-primary me-2"></i>
+                                            Source Code
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="{% url 'projects' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i> All Projects
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">
+                        Discuss This Project <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- More Projects -->
+<section class="more-projects py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="fw-bold mb-3">More Projects</h2>
+                <p class="text-muted">Explore more of my recent work</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for related_project in project.technologies.all.0.projects.all|slice:":3" %}
+                {% if related_project.id != project.id %}
+                <div class="col-md-4">
+                    <div class="card border-0 h-100 shadow-sm project-card">
+                        <div class="project-image-container">
+                            {% if related_project.image %}
+                            <img src="{{ related_project.image.url }}" class="card-img-top project-image" alt="{{ related_project.title }}">
+                            {% else %}
+                            <div class="bg-light text-center py-5">
+                                <i class="fas fa-code text-muted fa-3x"></i>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="card-body p-4">
+                            <h3 class="h5 fw-bold mb-3">{{ related_project.title }}</h3>
+                            <p class="text-muted mb-3">{{ related_project.description|truncatewords:15 }}</p>
+                            <a href="{% url 'project_detail' related_project.slug %}" class="btn btn-sm btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

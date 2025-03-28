@@ -1,0 +1,461 @@
+/* static/css/custom.css */
+
+/* Additional styling and overrides for the portfolio site */
+
+/* Enhancements for Cards */
+.card {
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  box-shadow: 0 4px 6px rgba(0, 102, 255, 0.2);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 8px rgba(0, 102, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline-dark:hover {
+  transform: translateY(-2px);
+}
+
+/* Hero section enhancements */
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 767.98px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Skill icon animations */
+.skill-icon i {
+  transition: transform 0.3s ease;
+}
+
+.skill-icon:hover i {
+  transform: scale(1.2);
+}
+
+/* Project image container */
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.project-image {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Timeline styling enhancements */
+.timeline-item {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  height: 20px;
+  width: 2px;
+  background-color: var(--primary-color);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Contact form enhancements */
+.form-control {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 102, 255, 0.25);
+  border-color: var(--primary-color);
+}
+
+/* Loading animations */
+.fade-in {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge styling */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 0.5rem;
+}
+
+/* Social links styling */
+.social-links a {
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-3px);
+}
+
+/* Footer styling */
+.footer a {
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Navigation active link */
+.nav-link.active {
+  font-weight: 600;
+}
+
+/* Theme toggle animation */
+.theme-toggle {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+.theme-toggle i {
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:active i {
+  transform: rotate(360deg);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0055dd;
+}
+
+/* Print styles */
+@media print {
+  .navbar, .footer, .theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    color: #000 !important;
+    background-color: #f3f3f3 !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.skill-card {
+  border-radius: 15px;
+  background-color: var(--card-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for skill icons */
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+/* Consistent icon backgrounds */
+.skill-icon.frontend-icon {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.skill-icon.backend-icon {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.skill-icon.mobile-icon {
+  background-color: rgba(23, 162, 184, 0.1);
+  color: #17a2b8;
+}
+
+.skill-icon.ai-icon {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .skill-card {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .skill-icon.frontend-icon {
+  background-color: rgba(0, 123, 255, 0.15);
+}
+
+[data-theme="dark"] .skill-icon.backend-icon {
+  background-color: rgba(40, 167, 69, 0.15);
+}
+
+[data-theme="dark"] .skill-icon.mobile-icon {
+  background-color: rgba(23, 162, 184, 0.15);
+}
+
+[data-theme="dark"] .skill-icon.ai-icon {
+  background-color: rgba(255, 193, 7, 0.15);
+}
+
+/* Make skill section more consistent */
+.skills-section {
+  padding: 4rem 0;
+}
+
+.skills-section .card-body {
+  padding: 2rem;
+}
+
+.skills-section h3 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.skills-list {
+  margin-bottom: 0;
+}
+
+.skills-list li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.skills-list li:last-child {
+  margin-bottom: 0;
+}
+
+.skills-list i {
+  width: 1.5rem;
+  text-align: center;
+  margin-right: 0.75rem;
+}
+
+/* Hero section fixes */
+.hero {
+  padding-top: 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Ensure the hero section doesn't overlap with the navbar */
+.navbar {
+  position: relative;
+  z-index: 1030; /* Higher z-index to keep navbar on top */
+  margin-bottom: 2rem;
+}
+
+/* Hero image container fix */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.hero-image img {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for the blue background shape */
+.hero-shape {
+  transform: translate(10%, -10%);
+  top: 10% !important;
+  right: 5% !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991.98px) {
+  .hero {
+    padding-top: 1.5rem;
+  }
+
+  .hero-image {
+    padding: 1rem 0;
+  }
+
+  .hero-shape {
+    width: 70% !important;
+    height: 90% !important;
+    transform: translate(5%, -5%);
+  }
+
+  .hero-image img {
+    max-width: 85%;
+  }
+}
+
+/* Add padding after navbar */
+.navbar {
+  position: relative;
+  z-index: 1030; /* Keep navbar on top */
+  margin-bottom: 0; /* Remove bottom margin from navbar itself */
+}
+
+/* Create a spacer after the navbar */
+.navbar + * {
+  margin-top: 5rem; /* Add significant space after the navbar before any content */
+  padding-top: 1rem; /* Add additional padding to the first element */
+}
+
+/* Fix for fixed navbar if being used */
+body {
+  padding-top: 1rem; /* Add body padding in case navbar is fixed */
+}
+
+/* Adjust page section padding */
+section:first-of-type {
+  padding-top: 2rem; /* Add padding to first section */
+}
+
+/* Fix for About Me and other page headers */
+.page-header {
+  padding-top: 3rem; /* Increase top padding for page headers */
+  margin-bottom: 2rem;
+}
+
+/* For consistent spacing across all pages */
+main > .container {
+  padding-top: 4rem; /* Increased padding for main container */
+}
+
+/* Specific style for page headers like "About Me" */
+h1, .display-4, .display-3, .display-2, .page-title {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    margin-bottom: 1.5rem; /* Slightly less space on mobile */
+  }
+
+  section:first-of-type {
+    padding-top: 1.5rem;
+  }
+
+  .page-header {
+    padding-top: 2rem;
+  }
+}
+
+/* Add this to your custom.css file */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-container:hover video {
+  transform: scale(1.02);
+}
+
+/* Add a subtle overlay for better text visibility if needed */
+.video-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover::after {
+  opacity: 1;
+}

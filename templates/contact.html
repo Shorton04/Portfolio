@@ -1,0 +1,169 @@
+<!-- templates/contact.html -->
+{% extends 'base.html' %}
+
+{% block title %}Contact Me | Marc Dexter Raymundo{% endblock %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="contact-header py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-4">Get in Touch</h1>
+                <p class="lead text-muted">Have a project in mind? Let's discuss how I can help you achieve your goals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Content -->
+<section class="contact-content py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+                <h2 class="fw-bold mb-4">Contact Information</h2>
+                <p class="text-muted mb-5">Feel free to get in touch with me. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                
+                <div class="contact-info mb-5">
+                    <div class="d-flex mb-4">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Email</h3>
+                            <p class="mb-0"><a href="mailto:rmarcdexter@gmail.com" class="text-decoration-none text-muted">rmarcdexter@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Location</h3>
+                            <p class="mb-0 text-muted">Manila, Philippines</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 me-3">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h3 class="h6 fw-bold mb-1">Social Profiles</h3>
+                            <div class="social-links mt-2">
+                                <a href="#" class="text-decoration-none me-3 fs-5"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none me-3 fs-5"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-decoration-none me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm bg-primary text-white">
+                    <div class="card-body p-4">
+                        <h3 class="h5 fw-bold mb-3">Let's create something together!</h3>
+                        <p class="mb-0">Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="fw-bold mb-4">Send Message</h2>
+                        
+                        {% if messages %}
+                        <div class="alert alert-success mb-4">
+                            {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="{{ form.name.id_for_label }}" class="form-label fw-medium">Your Name</label>
+                                        {{ form.name }}
+                                        {% if form.name.errors %}
+                                        <div class="text-danger small mt-1">{{ form.name.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="{{ form.email.id_for_label }}" class="form-label fw-medium">Your Email</label>
+                                        {{ form.email }}
+                                        {% if form.email.errors %}
+                                        <div class="text-danger small mt-1">{{ form.email.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-group mb-3">
+                                        <label for="{{ form.subject.id_for_label }}" class="form-label fw-medium">Subject</label>
+                                        {{ form.subject }}
+                                        {% if form.subject.errors %}
+                                        <div class="text-danger small mt-1">{{ form.subject.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-group mb-4">
+                                        <label for="{{ form.message.id_for_label }}" class="form-label fw-medium">Your Message</label>
+                                        {{ form.message }}
+                                        {% if form.message.errors %}
+                                        <div class="text-danger small mt-1">{{ form.message.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary px-4 py-2">
+                                        Send Message <i class="fas fa-paper-plane ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="map-container">
+                            <!-- Manila, Philippines Map Embed -->
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123486.87550872426!2d120.9418983541992!3d14.580469099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca03571ec38b%3A0x69d1d5751069c11f!2sManila%2C%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1711667542165!5m2!1sen!2sph" 
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

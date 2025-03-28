@@ -1,0 +1,211 @@
+<!-- templates/about.html -->
+{% extends 'base.html' %}
+
+{% block title %}About Me | Marc Dexter Raymundo{% endblock %}
+
+{% block content %}
+<!-- About Header -->
+<section class="about-header py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-4">About Me</h1>
+                <p class="lead text-muted">Learn more about my journey, skills, and experience as a developer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="about-content py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                {% load static %}
+<div class="video-container mb-4">
+    <video class="img-fluid rounded-4 shadow-sm" autoplay muted loop playsinline>
+        <source src="{% static 'vid/about.mp4' %}" type="video/mp4">
+        <!-- Fallback to image if video doesn't load -->
+        Your browser does not support the video tag.
+    </video>
+</div>
+                
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="h5 fw-bold mb-3">Personal Details</h3>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1 fw-medium">Name</p>
+                            <p class="text-muted">Marc Dexter Raymundo</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1 fw-medium">Email</p>
+                            <p class="text-muted">rmarcdexter@gmail.com</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <p class="mb-1 fw-medium">Location</p>
+                            <p class="text-muted">Manila, Philippines</p>
+                        </div>
+                        
+                        <div>
+                            <p class="mb-1 fw-medium">Languages</p>
+                            <p class="text-muted">English, Filipino</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7">
+                <h2 class="fw-bold mb-4">My Journey</h2>
+                
+                <p class="mb-4">Hello, I'm Marc Dexter Raymundo, a passionate developer specializing in web and mobile application development with expertise in AI integration. As a graduate with a Bachelor of Science in Information Technology, I've dedicated my career to creating innovative digital solutions that combine technical excellence with intuitive user experiences.</p>
+                
+                <p class="mb-4">My journey in technology began with a fascination for how digital tools can solve real-world problems. This curiosity led me to explore various programming languages and frameworks, eventually focusing on full-stack development and artificial intelligence applications.</p>
+                
+                <p class="mb-5">I believe in continuous learning and staying updated with the latest technologies. When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                
+                <div class="row mb-5">
+                    <div class="col-sm-6 mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <i class="fas fa-laptop-code text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1">Web Development</h4>
+                                <p class="text-muted mb-0">Full-stack solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box bg-success bg-opacity-10 p-3 rounded-circle me-3">
+                                <i class="fas fa-mobile-alt text-success"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1">Mobile Apps</h4>
+                                <p class="text-muted mb-0">Native & cross-platform</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box bg-info bg-opacity-10 p-3 rounded-circle me-3">
+                                <i class="fas fa-brain text-info"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1">AI Development</h4>
+                                <p class="text-muted mb-0">Smart solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-box bg-warning bg-opacity-10 p-3 rounded-circle me-3">
+                                <i class="fas fa-paint-brush text-warning"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-1">UI/UX Design</h4>
+                                <p class="text-muted mb-0">User-centered design</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-5">
+                    <a href="{% static 'Raymundo-Marc-Dexter_Resume.pdf' %}" class="btn btn-primary me-2" target="_blank">Download CV</a>
+                    <a href="{% url 'contact' %}" class="btn btn-outline-dark">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education & Experience -->
+<section class="education-experience py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center">
+                <h2 class="fw-bold mb-3">Education & Experience</h2>
+                <p class="text-muted">My academic background and professional journey.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Education Column -->
+            <div class="col-lg-6">
+                <h3 class="h4 fw-bold mb-4">Education</h3>
+                
+                <div class="timeline">
+                    {% for edu in education %}
+                    <div class="timeline-item mb-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary">{{ edu.start_date|date:"Y" }} - {% if edu.current %}Present{% else %}{{ edu.end_date|date:"Y" }}{% endif %}</span>
+                                    <span class="text-muted small">{{ edu.institution }}</span>
+                                </div>
+                                <h4 class="h5 fw-bold mb-2">{{ edu.degree }}</h4>
+                                <p class="mb-2">{{ edu.field_of_study }}</p>
+                                {% if edu.description %}
+                                <p class="text-muted mb-0">{{ edu.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-4">
+                        <p class="text-muted">No education records available.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Experience Column -->
+            <div class="col-lg-6">
+                <h3 class="h4 fw-bold mb-4">Experience</h3>
+                
+                <div class="timeline">
+                    {% for exp in experience %}
+                    <div class="timeline-item mb-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-success">{{ exp.start_date|date:"Y" }} - {% if exp.current %}Present{% else %}{{ exp.end_date|date:"Y" }}{% endif %}</span>
+                                    <span class="text-muted small">{{ exp.company }}</span>
+                                </div>
+                                <h4 class="h5 fw-bold mb-2">{{ exp.position }}</h4>
+                                <p class="text-muted mb-0">{{ exp.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-4">
+                        <p class="text-muted">No experience records available.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-3">Ready to Start a Project?</h2>
+                <p class="lead mb-0">Let's collaborate and bring your ideas to life with creative solutions.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'contact' %}" class="btn btn-light px-4 py-2">Get In Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

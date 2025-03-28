@@ -1,0 +1,151 @@
+/* static/css/animations.css */
+
+/* Animation Styles */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Staggered animation delays for multiple elements */
+.animate-fade-in:nth-child(1) { animation-delay: 0.1s; }
+.animate-fade-in:nth-child(2) { animation-delay: 0.2s; }
+.animate-fade-in:nth-child(3) { animation-delay: 0.3s; }
+.animate-fade-in:nth-child(4) { animation-delay: 0.4s; }
+.animate-fade-in:nth-child(5) { animation-delay: 0.5s; }
+.animate-fade-in:nth-child(6) { animation-delay: 0.6s; }
+
+/* Subtle pulse for call-to-action elements */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Slide in from left animation */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+/* Slide in from right animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+/* Hover animations for skill cards */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Project card hover effect */
+.project-card .project-image {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Button hover effects */
+.btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover, .btn-outline-dark:hover {
+  transform: translateY(-2px);
+}
+
+/* Theme toggle animation */
+#theme-toggle {
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+#theme-icon {
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle-spin {
+  animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Loading spinner animation */
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spinner 0.8s linear infinite;
+}
+
+/* Text reveal animation */
+@keyframes revealText {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-text-reveal {
+  display: inline-block;
+  animation: revealText 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Add animation classes as needed using intersection observer in JS */

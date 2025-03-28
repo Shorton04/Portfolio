@@ -1,0 +1,146 @@
+/* static/css/dark-mode.css */
+
+/* Dark Mode Variables */
+:root {
+  /* Light Mode Variables (default) */
+  --primary-color: rgb(194, 219, 248);
+  --secondary-color: #6c757d;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --bg-color: #f3f3f3;
+  --text-color: #232222;
+  --card-bg: #c2dbf8;
+  --border-color: rgba(0, 0, 0, 0.125);
+  --navbar-bg: #c2dbf8;
+  --footer-bg: #f8f9fa;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --primary-color: rgb(194, 219, 248);
+  --secondary-color: #adb5bd;
+  --light-color: #343a40;
+  --dark-color: #f8f9fa;
+  --bg-color: #212529;
+  --text-color: #f8f9fa;
+  --card-bg: #343a40;
+  --border-color: rgba(255, 255, 255, 0.125);
+  --navbar-bg: #343a40;
+  --footer-bg: #212529;
+}
+
+/* Apply Theme Variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: var(--navbar-bg) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: var(--text-color);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+/* Background Colors */
+.bg-light {
+  background-color: var(--light-color) !important;
+}
+
+/* Text Colors */
+.text-muted {
+  color: var(--secondary-color) !important;
+}
+
+.text-dark {
+  color: var(--dark-color) !important;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--footer-bg) !important;
+}
+
+/* Buttons */
+.btn-outline-dark {
+  color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--dark-color);
+  color: var(--bg-color);
+}
+
+/* Form Controls */
+.form-control {
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Skill Cards in Dark Mode */
+[data-theme="dark"] .skill-icon.bg-primary.bg-opacity-10 {
+  background-color: rgb(194, 219, 248) !important;
+}
+
+[data-theme="dark"] .skill-icon.bg-success.bg-opacity-10 {
+  background-color: rgba(104, 253, 141, 0.2) !important;
+}
+
+[data-theme="dark"] .skill-icon.bg-info.bg-opacity-10 {
+  background-color: rgba(47, 196, 220, 0.2) !important;
+}
+
+[data-theme="dark"] .skill-icon.bg-warning.bg-opacity-10 {
+  background-color: rgba(253, 206, 64, 0.2) !important;
+}
+
+/* Smooth Transition for Theme Switch */
+body,
+.navbar,
+.card,
+.btn,
+.form-control,
+.footer,
+.skill-icon {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
